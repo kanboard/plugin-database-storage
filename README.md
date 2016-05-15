@@ -15,10 +15,20 @@ Requirements
 ------------
 
 - Postgres is recommended
+- Mysql or Sqlite
+
+Why I should store files in the database?
+-----------------------------------------
+
+Storing files in the database doesn't fit all usages.
+Obviously, the database size will increase over the time if you store large files.
+
+The main benefit of doing this is to simplify backups.
+Everything is in a central location and nothing is stored on the frontend servers.
+PostgreSQL is preferred because streaming files is supported.
 
 Notes
 -----
 
-- Obviously the database size will increase if you store large files
 - Run the command `VACUUM` to free up disk space used by removed files
 - With Mysql, you may need to change the value of `max_allowed_packet`, the default is 1MB
