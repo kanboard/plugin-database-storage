@@ -25,6 +25,7 @@ class DatabaseObjectStorage implements ObjectStorageInterface
      * Constructor
      *
      * @access public
+     * @param  Database $db
      */
     public function __construct(Database $db)
     {
