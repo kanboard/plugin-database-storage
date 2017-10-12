@@ -3,6 +3,7 @@
 namespace Kanboard\Plugin\DatabaseStorage;
 
 use Kanboard\Core\Plugin\Base;
+use Kanboard\Plugin\DatabaseStorage\Command\MigrateCommand;
 
 class Plugin extends Base
 {
@@ -11,6 +12,8 @@ class Plugin extends Base
         $this->container['objectStorage'] = function() {
             return new DatabaseObjectStorage($this->db);
         };
+
+        $this->cli->add(new MigrateCommand($this->container));
     }
 
     public function getPluginName()
@@ -30,7 +33,7 @@ class Plugin extends Base
 
     public function getPluginVersion()
     {
-        return '1.0.0';
+        return '1.0.1';
     }
 
     public function getPluginHomepage()

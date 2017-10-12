@@ -28,6 +28,13 @@ The main benefit of doing this is to simplify backups.
 Everything is in a central location and nothing is stored on the frontend servers.
 PostgreSQL is preferred because streaming files is supported.
 
+Migrating old files to the database
+-----------------------------------
+
+```bash
+./cli db-storage:migrate
+```
+
 Notes
 -----
 
