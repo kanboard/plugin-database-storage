@@ -14,7 +14,8 @@ Author
 Requirements
 ------------
 
-- Kanboard >= 1.0.29
+- PHP >= 7.0
+- Kanboard >= 1.2.1
 - Postgres is recommended
 - Mysql or Sqlite
 
