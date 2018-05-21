@@ -23,17 +23,18 @@ class MigrateCommand extends BaseCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         if (! file_exists(FILES_DIR)) {
-            $output->writeln('<error>Directory not found: '.FILES_DIR.'</error>');
+            $output->writeln('<error>Directory not found: ' . FILES_DIR . '</error>');
         } else {
             $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(FILES_DIR), RecursiveIteratorIterator::SELF_FIRST);
             $storage = new DatabaseObjectStorage($this->container['db']);;
 
             foreach($files as $file) {
-                if ($file->getFilename(){0} !== '.' && ! $file->isDir()) {
+                $fileName = $file->getFilename();
+                if ($fileName{0} !== '.' && ! $file->isDir()) {
                     $key = substr($file->getRealPath(), strlen(FILES_DIR) + 1);
 
                     if (! $this->fileExists($storage, $key)) {
-                        $output->writeln('<info>Migrating '.$file->getFilename().'</info>');
+                        $output->writeln('<info>Migrating ' . $fileName . '</info>');
                         $blob = $this->readFile($file->getRealPath());
                         $storage->put($key, $blob);
                     }
