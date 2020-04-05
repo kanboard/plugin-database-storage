@@ -1,8 +1,6 @@
 Database Object Storage
 =======================
 
-[![Build Status](https://travis-ci.org/kanboard/plugin-database-storage.svg?branch=master)](https://travis-ci.org/kanboard/plugin-database-storage)
-
 This plugin stores uploaded files into the database instead of using the local filesystem.
 
 Author
