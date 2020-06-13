@@ -30,7 +30,7 @@ class MigrateCommand extends BaseCommand
 
             foreach($files as $file) {
                 $fileName = $file->getFilename();
-                if ($fileName{0} !== '.' && ! $file->isDir()) {
+                if ($fileName[0] !== '.' && ! $file->isDir()) {
                     $key = substr($file->getRealPath(), strlen(FILES_DIR) + 1);
 
                     if (! $this->fileExists($storage, $key)) {
